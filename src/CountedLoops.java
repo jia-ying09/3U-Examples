@@ -46,7 +46,7 @@ public class CountedLoops {
     
     
     //conpound conditions
-    //&& <- AND statement - bothe must be true
+    //&& <- AND statement - both must be true
     //|| <- OR statement - one of them must be true
     if(karel.frontIsClear()) {
         if(karel.countThingsInBackpack() == 5)
