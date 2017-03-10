@@ -158,7 +158,7 @@ public class GUIexample extends javax.swing.JFrame {
         int age = currentYear - birthYear;
         
         //output age
-        System.out.println("Your are " + age + " years old");
+        output.setText("Your are " + age + " years old");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
