@@ -18,7 +18,7 @@ public class InputOutputExample {
 
         //scanner to get unser input
         Scanner input = new Scanner(System.in);
-
+        
         //asking the user to type in their name
         System.out.println("Please enter your name");
 
@@ -45,5 +45,6 @@ public class InputOutputExample {
         } else {
             System.out.println(" I think you are lying!");
         }
+
     }
 }
