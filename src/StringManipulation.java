@@ -20,11 +20,11 @@ public class StringManipulation {
 
         while (true) {
             //get a word from the user
-            System.out.println("please entre word");
+            System.out.println("please enter word");
             String word = input.nextLine();
             
             //try to find the position of an a
-            int aPosition =word.indexOf("a");
+            int aPosition = word.indexOf("a");
             //stop the program when end is typed in
             if(word.equals("END")){
                 break;}

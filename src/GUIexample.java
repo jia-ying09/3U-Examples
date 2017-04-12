@@ -149,14 +149,14 @@ public class GUIexample extends javax.swing.JFrame {
         //grab the birth and current year as string
         String birthText = birthYearInput.getText();
         String currentText = currentYearInput.getText();
-        
+
         //convert stings to integers
         int birthYear = Integer.parseInt(birthText);
-        int currentYear = Integer.parseInt(currentText);     
-        
+        int currentYear = Integer.parseInt(currentText);
+
         //calculate age
         int age = currentYear - birthYear;
-        
+
         //output age
         output.setText("Your are " + age + " years old");
     }//GEN-LAST:event_jButton2ActionPerformed
