@@ -47,6 +47,7 @@ public class ArrayExample {
         for (int i = 0; i < marks.length; i++) {
             System.out.println(marks[i]);
         }
+        
         //use a loop to determine the sum
         //start with accumulator
         double sum = 0;
