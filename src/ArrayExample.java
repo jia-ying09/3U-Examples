@@ -47,13 +47,13 @@ public class ArrayExample {
         for (int i = 0; i < marks.length; i++) {
             System.out.println(marks[i]);
         }
-        
+
         //use a loop to determine the sum
         //start with accumulator
         double sum = 0;
         //for loop to go through each number
         for (int i = 0; i < marks.length; i++) {
-            //add whatever number i am on
+            //add whatever number i is on
             sum = sum + marks[i];
         }
         System.out.println("The sum is " + sum);
