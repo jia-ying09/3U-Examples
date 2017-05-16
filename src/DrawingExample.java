@@ -88,20 +88,22 @@ public class DrawingExample extends JComponent {
         while (!done) {
             // determines when we started so we can keep a framerate
             startTime = System.currentTimeMillis();
-            
+
             // all your game rules and move is done in here
             // GAME LOGIC STARTS HERE 
-       
+            pacmanX = pacmanX + pacmanDirection *5;
             
             if (pacmanX < WIDTH - 75) {
                 pacmanX = pacmanX + 1;
             }
+            
             if (pacmanX > - 75) {
                 pacmanDirection = -1;
             }
-             if (pacmanX < 0) {
+            if (pacmanX > 0) {
                 pacmanDirection = 1;
             }
+            
 
             // GAME LOGIC ENDS HERE 
             // update the drawing (calls paintComponent)
