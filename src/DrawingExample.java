@@ -91,7 +91,7 @@ public class DrawingExample extends JComponent {
 
             // all your game rules and move is done in here
             // GAME LOGIC STARTS HERE 
-            pacmanX = pacmanX + pacmanDirection *5;
+            
             
             if (pacmanX < WIDTH - 75) {
                 pacmanX = pacmanX + 1;
@@ -103,7 +103,7 @@ public class DrawingExample extends JComponent {
             if (pacmanX > 0) {
                 pacmanDirection = 1;
             }
-            
+            pacmanX = pacmanX + pacmanDirection *5;
 
             // GAME LOGIC ENDS HERE 
             // update the drawing (calls paintComponent)
