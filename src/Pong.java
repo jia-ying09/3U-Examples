@@ -23,6 +23,11 @@ public class Pong extends JComponent {
     static final int HEIGHT = 600;
     //Title of the window
     String title = "My Game";
+    // sets the framerate and delay for our game
+    // you just need to select an approproate framerate
+    long desiredFPS = 60;
+    long desiredTime = (1000) / desiredFPS;
+    // YOUR GAME VARIABLES WOULD GO HERE
     //constructing players
     Rectangle player1 = new Rectangle(0, 0, 25, 100);
     Rectangle player2 = new Rectangle(WIDTH - 25, HEIGHT - 100, 25, 100);
@@ -41,15 +46,10 @@ public class Pong extends JComponent {
     int player1Score = 0;
     int player2Score = 0;
     Font myFont = new Font("Arial", Font.BOLD, 75);
-    // sets the framerate and delay for our game
-    // you just need to select an approproate framerate
-    long desiredFPS = 60;
-    long desiredTime = (1000) / desiredFPS;
-
-    // YOUR GAME VARIABLES WOULD GO HERE
     // GAME VARIABLES END HERE   
     // Constructor to create the Frame and place the panel in
     // You will learn more about this in Grade 12 :)
+
     public Pong() {
         // creates a windows to show my game
         JFrame frame = new JFrame(title);
@@ -135,9 +135,9 @@ public class Pong extends JComponent {
 
             // all your game rules and move is done in here
             // GAME LOGIC STARTS HERE 
-            
+
             collisions();
-            
+
             //player 2 movement
             if (upPressed) {
                 player2.y = player2.y - 5;
@@ -145,7 +145,7 @@ public class Pong extends JComponent {
             if (downPressed) {
                 player2.y = player2.y + 5;
             }
-            
+
             //player 1 movements
             if (wPressed) {
                 player1.y = player1.y - 5;
@@ -159,6 +159,19 @@ public class Pong extends JComponent {
 
             //update y coordinate every second
             ball.y += velocityY;
+
+            if (ball.x <= 0) {
+                resetBall();
+                player2Score++;
+            }
+            if (ball.x >= WIDTH) {
+                resetBall();
+                player1Score++;
+            }
+
+            if (player1Score == 10 || player2Score == 10) {
+                done = true;
+            }
 
             // GAME LOGIC ENDS HERE 
             // update the drawing (calls paintComponent)
@@ -272,31 +285,38 @@ public class Pong extends JComponent {
 
         }
         //top collision
-        if(ball.y <=0){
-        velocityY = 4;
+        if (ball.y <= 0) {
+            velocityY = 4;
         }
-        
+
         //bottom collision
-        if (ball.y + ball.height >= HEIGHT){
+        if (ball.y + ball.height >= HEIGHT) {
             velocityY = -velocityY;
         }
         //player's y does not exceed off to the negatives
         //player 1 top part
-        if(player1.y <= 0){
-        player1.y = 0;}
-        
+        if (player1.y <= 0) {
+            player1.y = 0;
+        }
+
         //player 1 bottom part
-        if(player1.y + player1.height >= HEIGHT){
-        player1.y = player1.y - 5;}
-        
+        if (player1.y + player1.height >= HEIGHT) {
+            player1.y = player1.y - 5;
+        }
+
         //player 2 top part
-        if(player2.y <= 0){
-        player2.y = 0;}
-        
+        if (player2.y <= 0) {
+            player2.y = 0;
+        }
+
         //player 2 bottom part
-        if(player2.y + player2.height >= HEIGHT){
-        player2.y = player2.y - 5;}
-        
-        
+        if (player2.y + player2.height >= HEIGHT) {
+            player2.y = player2.y - 5;
+        }
+    }
+
+    public void resetBall() {
+        ball.x = WIDTH / 2;
+        ball.y = HEIGHT / 2;
     }
 }
