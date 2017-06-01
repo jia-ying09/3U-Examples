@@ -11,24 +11,27 @@ import java.awt.event.MouseEvent;
 
 /**
  *
- * @author linj4653
+ * @author lamon
  */
 public class DrawingExample extends JComponent {
 
     // Height and Width of our game
     static final int WIDTH = 800;
     static final int HEIGHT = 600;
+
     // sets the framerate and delay for our game
     // you just need to select an approproate framerate
     long desiredFPS = 60;
     long desiredTime = (1000) / desiredFPS;
+
+
     // GAME VARIABLES WOULD GO HERE
-    // create the colour purple
-    Color purple = new Color(87, 7, 184);
+    Color purple = new Color(175,15,200);
     int pacmanX = 50;
-    // +1 = right
-    // -1 = left
+    // +1 - Right
+    // -1 - Left
     int pacmanDirection = 1;
+
     // GAME VARIABLES END HERE   
 
     // drawing of the game happens in here
@@ -39,37 +42,38 @@ public class DrawingExample extends JComponent {
         // always clear the screen first!
         g.clearRect(0, 0, WIDTH, HEIGHT);
 
-        // GAME DRAWING GOES HERE
-        g.drawLine(200, 100, 400, 500);
-
-        g.setColor(Color.lightGray);
+        // GAME DRAWING GOES HERE 
+        g.drawLine(200,100,400, 500);
+        
+        g.setColor(Color.GREEN);
         // rectangle at (400,300) that is 100 wide, 50 tall
-        g.fillRect(400, 300, 100, 50);
-
-        g.setColor(Color.PINK);
-
-        // draw oval at (400,200) that is 100 wide and 50 tall
-        g.fillOval(400, 200, 100, 50);
-
+        g.fillRect(400,300,100,50);
+        
+        g.setColor(Color.BLUE);
+        // draw oval at (400,100) top corner, 100 wide, 50 tall
+        g.fillOval(400,200,100,50);
+        
         g.setColor(purple);
-
-        // draw triangle
+        
+        // draw a triangle
         int[] xPoints = {500, 750, 700};
         int[] yPoints = {375, 300, 100};
-        // x positions, y positions, how many there are all together
+        // x positions, y positions, how many points
         g.fillPolygon(xPoints, yPoints, 3);
-
+        
         // arc
         g.setColor(Color.YELLOW);
         g.fillArc(pacmanX, 500, 75, 75, 45, 270);
-
+        
         // GAME DRAWING ENDS HERE
     }
 
+
     // This method is used to do any pre-setup you might need to do
     // This is run before the game loop begins!
-    public void preSetup() {
-        // Any of your pre setup before the loop starts should go here
+    public void  preSetup(){
+       // Any of your pre setup before the loop starts should go here
+
     }
 
     // The main game loop
@@ -91,20 +95,14 @@ public class DrawingExample extends JComponent {
 
             // all your game rules and move is done in here
             // GAME LOGIC STARTS HERE 
-            
-            
-            if (pacmanX < WIDTH - 75) {
-                pacmanX = pacmanX + 1;
-            }
-            
-            if (pacmanX > - 75) {
+            if(pacmanX > WIDTH - 75){
                 pacmanDirection = -1;
             }
-            if (pacmanX > 0) {
+            if(pacmanX < 0){
                 pacmanDirection = 1;
             }
-            pacmanX = pacmanX + pacmanDirection *5;
-
+            
+            pacmanX = pacmanX + pacmanDirection*10;
             // GAME LOGIC ENDS HERE 
             // update the drawing (calls paintComponent)
             repaint();
@@ -145,11 +143,11 @@ public class DrawingExample extends JComponent {
         frame.pack();
         // shows the window to the user
         frame.setVisible(true);
-
+        
         // add listeners for keyboard and mouse
         frame.addKeyListener(new Keyboard());
         game.addMouseListener(new Mouse());
-
+        
         // starts the game loop
         game.run();
     }
@@ -157,33 +155,36 @@ public class DrawingExample extends JComponent {
     // Used to implement any of the Mouse Actions
     private static class Mouse extends MouseAdapter {
         // if a mouse button has been pressed down
-
         @Override
-        public void mousePressed(MouseEvent e) {
+        public void mousePressed(MouseEvent e){
+            
         }
-
+        
         // if a mouse button has been released
         @Override
-        public void mouseReleased(MouseEvent e) {
+        public void mouseReleased(MouseEvent e){
+            
         }
-
+        
         // if the mouse has moved positions
         @Override
-        public void mouseMoved(MouseEvent e) {
+        public void mouseMoved(MouseEvent e){
+            
         }
     }
-
+    
     // Used to implements any of the Keyboard Actions
-    private static class Keyboard extends KeyAdapter {
+    private static class Keyboard extends KeyAdapter{
         // if a key has been pressed down
-
         @Override
-        public void keyPressed(KeyEvent e) {
+        public void keyPressed(KeyEvent e){
+            
         }
-
+        
         // if a key has been released
         @Override
-        public void keyReleased(KeyEvent e) {
+        public void keyReleased(KeyEvent e){
+            
         }
     }
 }
